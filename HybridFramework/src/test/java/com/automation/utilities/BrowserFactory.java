@@ -9,7 +9,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 
 public class BrowserFactory {
 	
-	// New change
+	
 	public static WebDriver startApplication(WebDriver driver, String browserName, String appURL)
 	{
 		if(browserName.equals("Chrome"))
