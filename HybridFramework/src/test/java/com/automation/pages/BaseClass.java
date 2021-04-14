@@ -1,14 +1,14 @@
 package com.automation.pages;
 
+import org.testng.annotations.AfterMethod;
 import java.io.File;
 import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.BeforeClass;
 import com.automation.utilities.BrowserFactory;
 import com.automation.utilities.ConfigDataProvider;
@@ -49,12 +49,15 @@ public class BaseClass {
 
 	}
 	
+	@Parameters({"browser","appURL"})
 	@BeforeClass
-	public void setup()
+	public void setup(String browser, String appURL)
 	{
 		Reporter.log("Trying to initialize and start the browser",true);
 		
-		driver = BrowserFactory.startApplication(driver, pro.getBrowser(), pro.getURL());
+//		driver = BrowserFactory.startApplication(driver, pro.getBrowser(), pro.getURL());
+		
+		driver = BrowserFactory.startApplication(driver, browser, appURL);
 		
 		Reporter.log("Browser and application is up and running",true);
 	}
@@ -81,6 +84,7 @@ public class BaseClass {
 		Reporter.log("Test completed and reports generated",true);
 	}
 	
+
 	@AfterClass
 	public void tearDown()
 	{
