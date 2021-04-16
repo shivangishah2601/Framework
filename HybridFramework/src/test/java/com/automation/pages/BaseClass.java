@@ -36,7 +36,8 @@ public class BaseClass {
 		{
 			excel = new ExcelDataProvider();
 			pro = new ConfigDataProvider();
-			extent = new ExtentHtmlReporter(new File(System.getProperty("user.dir") + "/reports/AttendancePortal_" + Helper.getCurrentDateTime() + ".html"));
+//			extent = new ExtentHtmlReporter(new File(System.getProperty("user.dir") + "/reports/AttendancePortal_" + Helper.getCurrentDateTime() + ".html"));
+			extent = new ExtentHtmlReporter(new File(System.getProperty("user.dir") + "/reports/AttendancePortal.html"));
 			report = new ExtentReports();
 			report.attachReporter(extent);
 			
